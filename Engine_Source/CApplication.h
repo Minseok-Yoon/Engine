@@ -1,7 +1,25 @@
 #pragma once
+#include "CommonInclude.h"
 
-class CApplication
+// namespace ªÁøÎ¿Ã¿Ø class¿« ¿Ã∏ß¿Ã ∞„ƒ•±Ó∫¡
+namespace ya
 {
-public:
-	void test();
-};
+	class CApplication
+	{
+	public:
+		CApplication();
+		~CApplication();
+
+	private:
+		HWND m_hWnd;
+		HDC		m_hDC;
+
+	public:
+		void Init(HWND _hWnd);
+		void Run();
+
+		void Update();
+		void LateUpdate();
+		void Render();
+	};
+}

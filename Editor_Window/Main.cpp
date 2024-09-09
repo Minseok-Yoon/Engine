@@ -5,7 +5,7 @@
 #include "Editor_Window.h"
 #include "../Engine_Source/CApplication.h"
 
-CApplication app;
+ya::CApplication application;
 
 #define MAX_LOADSTRING 100
 
@@ -29,7 +29,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     UNREFERENCED_PARAMETER(lpCmdLine);
 
     // TODO: 여기에 코드를 입력합니다.
-    app.test();
 
     // 전역 문자열을 초기화합니다.
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
@@ -69,6 +68,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         else {
             // 메세지가 없을 경우 여기서 처리
             // 게임 로직이 들어가면 된다.
+            application.Run();
         }
     }
 
@@ -128,6 +128,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
+
+   application.Init(hWnd);
 
    if (!hWnd)
    {
