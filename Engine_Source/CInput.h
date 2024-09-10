@@ -39,6 +39,14 @@ namespace ya
 		static bool GetKey(KEY_CODE _code) { return mKeys[(UINT)_code].eState == KEY_STATE::Pressed; }
 
 	private:
+		static void createKeys();
+		static void updateKeys();
+		static void updateKey(Key& _key);
+
+		static bool isKeyDown(KEY_CODE _code);
+		static void updateKeyDown(Key& _key);
+		static void updateKeyUp(Key& _key);
+
 		// 키의 상태는 어느 클래스 안에서도 접근이 가능해야 하니 정적 변수로 선언.
 		static vector<Key> mKeys;
 	};

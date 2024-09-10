@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)CApplication.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)CComponenet.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)CSpriteRenderer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)CTransform.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)CGameObject.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)CLayer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)CEntity.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)CInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)CScene.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)CSceneManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)CTime.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CComponenet.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CSpriteRenderer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CTransform.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CGameObject.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CEnums.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CLayer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CEntity.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CScene.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CSceneManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CTime.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Component">
+      <UniqueIdentifier>{7ea8a0a8-b31d-4bc1-a21e-3bd931383ee4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object">
+      <UniqueIdentifier>{cb6d0023-e890-4bd8-b4a9-8454d6c25669}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

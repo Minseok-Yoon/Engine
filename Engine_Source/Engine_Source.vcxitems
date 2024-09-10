@@ -15,13 +15,30 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CComponenet.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CEntity.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CEnums.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CScene.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CSceneManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CSpriteRenderer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CTime.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CTransform.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)CApplication.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)CComponenet.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)CEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)CGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)CInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)CLayer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)CScene.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)CSceneManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)CSpriteRenderer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)CTime.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)CTransform.cpp" />
   </ItemGroup>
 </Project>

@@ -15,40 +15,69 @@ namespace ya
 
 	void CInput::Init()
 	{
-		for (size_t i = 0; i < (UINT)KEY_CODE::End; i++)
-		{
-			Key key = {};
-			key.bPressed = false;
-			key.eState = KEY_STATE::None;
-			key.eKeyCode = (KEY_CODE)i;
-
-			mKeys.push_back(key);
-		}
+		createKeys();
 	}
 
 	void CInput::Update()
 	{
-		for (size_t i = 0; i < mKeys.size(); i++)
+		updateKeys();
+	}
+
+	void CInput::createKeys()
+	{
+		for (size_t i = 0; i < static_cast<UINT>(KEY_CODE::End); i++)
 		{
-			//키가 눌렸다
-			if (GetAsyncKeyState(ASCII[i]) & 0x8000)
-			{
-				if (mKeys[i].bPressed == true)
-					mKeys[i].eState = KEY_STATE::Pressed;
-				else
-					mKeys[i].eState = KEY_STATE::Down;
+			Key key = {};
+			key.bPressed = false;
+			key.eState = KEY_STATE::None;
+			key.eKeyCode = static_cast<KEY_CODE>(i);
 
-				mKeys[i].bPressed = true;
-			}
-			else // 키가 안눌렸다.
-			{
-				if (mKeys[i].bPressed == true)
-					mKeys[i].eState = KEY_STATE::Up;
-				else
-					mKeys[i].eState = KEY_STATE::None;
-
-				mKeys[i].bPressed = false;
-			}
+			mKeys.push_back(key);
 		}
+	}
+	void CInput::updateKeys()
+	{
+		for_each(mKeys.begin(), mKeys.end(),
+			[](Key& key) -> void
+		{
+			updateKey(key);
+		});
+	}
+
+	void CInput::updateKey(Key& _key)
+	{
+		if (isKeyDown(_key.eKeyCode))
+		{
+			updateKeyDown(_key);
+		}
+		else
+		{
+			updateKeyUp(_key);
+		}
+	}
+
+	bool CInput::isKeyDown(KEY_CODE _code)
+	{
+		return GetAsyncKeyState(ASCII[(UINT)_code]) & 0x8000;
+	}
+
+	void CInput::updateKeyDown(Key& _key)
+	{
+		if (_key.bPressed == true)
+			_key.eState = KEY_STATE::Pressed;
+		else
+			_key.eState = KEY_STATE::Down;
+
+		_key.bPressed = true;
+	}
+
+	void CInput::updateKeyUp(Key& _key)
+	{
+		if (_key.bPressed == true)
+			_key.eState = KEY_STATE::Up;
+		else
+			_key.eState = KEY_STATE::None;
+
+		_key.bPressed = false;
 	}
 }

@@ -4,6 +4,7 @@
 #include "framework.h"
 #include "Editor_Window.h"
 #include "../Engine_Source/CApplication.h"
+#include "../Engine_Window/CLoadScene.h"
 
 ya::CApplication application;
 
@@ -126,10 +127,13 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
-   HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
+   const UINT width = 1368;
+   const UINT height = 720;
 
-   application.Init(hWnd);
+   HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
+      CW_USEDEFAULT, 0, width, height, nullptr, nullptr, hInstance, nullptr);
+
+   application.Init(hWnd, width, height);
 
    if (!hWnd)
    {
@@ -138,6 +142,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
+
+   // Load Scenes
+   ya::LoadScenes();
 
    return TRUE;
 }
