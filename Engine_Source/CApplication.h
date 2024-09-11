@@ -22,6 +22,9 @@ namespace ya
 	public:
 		HDC GetHdc() { return m_hDC; }
 
+		UINT GetWidth() { return m_iWidth; }
+		UINT GetHeight() { return m_iHeight; }
+
 	public:
 		void Init(HWND _hWnd, UINT _iWidth, UINT _iHeight);
 		void Update();

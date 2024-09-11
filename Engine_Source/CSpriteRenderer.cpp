@@ -2,11 +2,12 @@
 #include "CTransform.h"
 #include "CGameObject.h"
 #include "CTexture.h"
+#include "CRenderer.h"
 
 namespace ya
 {
 	CSpriteRenderer::CSpriteRenderer() :
-		CComponent(),
+		CComponent(enums::COMPONENT_TYPE::Script),
 		m_pTexture(nullptr),
 		m_vSize(math::Vector2::One)
 	{
@@ -35,6 +36,7 @@ namespace ya
 
 		CTransform* tr = GetOwner()->GetComponent<CTransform>();
 		math::Vector2 pos = tr->GetPosition();
+		pos = renderer::mainCamera->CaluatePosition(pos);
 
 #pragma region
 		/*

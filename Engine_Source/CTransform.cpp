@@ -2,7 +2,8 @@
 
 namespace ya
 {
-	CTransform::CTransform()
+	CTransform::CTransform() :
+		CComponent(enums::COMPONENT_TYPE::Transform)
 	{
 	}
 

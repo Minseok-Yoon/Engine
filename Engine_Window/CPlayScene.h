@@ -16,6 +16,6 @@ namespace ya
 		void Render(HDC _hDC) override;
 
 	private:
-		class CPlayer* bg;
+		class CPlayer* m_pPlayer;
 	};
 }

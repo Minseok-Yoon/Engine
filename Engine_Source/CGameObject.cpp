@@ -7,6 +7,7 @@ namespace ya
 {
 	CGameObject::CGameObject()
 	{
+		m_vecComponents.resize((UINT)enums::COMPONENT_TYPE::End);
 		initializeTransform();
 	}
 
@@ -18,6 +19,9 @@ namespace ya
 	{
 		for (CComponent* comp : m_vecComponents)
 		{
+			if (comp == nullptr)
+				continue;
+
 			comp->Init();
 		}
 	}
@@ -26,6 +30,9 @@ namespace ya
 	{
 		for (CComponent* comp : m_vecComponents)
 		{
+			if (comp == nullptr)
+				continue;
+
 			comp->Update();
 		}
 	}
@@ -34,6 +41,9 @@ namespace ya
 	{
 		for (CComponent* comp : m_vecComponents)
 		{
+			if (comp == nullptr)
+				continue;
+
 			comp->LateUpdate();
 		}
 	}
@@ -42,6 +52,9 @@ namespace ya
 	{
 		for (CComponent* comp : m_vecComponents)
 		{
+			if (comp == nullptr)
+				continue;
+
 			comp->Render(_hDC);
 		}
 	}

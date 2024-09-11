@@ -19,5 +19,20 @@ namespace ya::math
 			x(_x),
 			y(_y)
 		{}
+
+		Vector2 operator+(Vector2 _vOther)
+		{
+			return Vector2(x + _vOther.x, y + _vOther.y);
+		}
+
+		Vector2 operator-(Vector2 _vOther)
+		{
+			return Vector2(x - _vOther.x, y - _vOther.y);
+		}
+
+		Vector2 operator/(float _fValue)
+		{
+			return Vector2(x / _fValue, y / _fValue);
+		}
 	};
 }

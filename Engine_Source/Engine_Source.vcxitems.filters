@@ -42,6 +42,13 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)CTexture.cpp">
       <Filter>Resource\Texture</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)CCamera.cpp">
+      <Filter>Component\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)CRenderer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)CScript.cpp">
+      <Filter>Component\Script</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CApplication.h" />
@@ -94,6 +101,13 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)CTexture.h">
       <Filter>Resource\Texture</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CCamera.h">
+      <Filter>Component\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CRenderer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CScript.h">
+      <Filter>Component\Script</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Component">
@@ -125,6 +139,12 @@
     </Filter>
     <Filter Include="Resource\Texture">
       <UniqueIdentifier>{f484fc1a-d233-4176-8fa3-86906c3ef1a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Camera">
+      <UniqueIdentifier>{7ba9389a-e350-4ab4-a0c0-3161e735bb4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Script">
+      <UniqueIdentifier>{2a25c8fa-156d-463a-b1fb-3563e1eb6913}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -2,7 +2,8 @@
 
 namespace ya
 {
-	CComponent::CComponent()
+	CComponent::CComponent(enums::COMPONENT_TYPE _eComponentType) :
+		m_eComponentType(_eComponentType)
 	{
 	}
 

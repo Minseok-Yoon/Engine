@@ -18,6 +18,7 @@
       <Filter>Player</Filter>
     </ClInclude>
     <ClInclude Include="CLoadResources.h" />
+    <ClInclude Include="CPlayerScript.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CPlayScene.cpp" />
@@ -25,5 +26,6 @@
     <ClCompile Include="CPlayer.cpp">
       <Filter>Player</Filter>
     </ClCompile>
+    <ClCompile Include="CPlayerScript.cpp" />
   </ItemGroup>
 </Project>

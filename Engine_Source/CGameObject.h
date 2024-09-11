@@ -16,7 +16,7 @@ namespace ya
 			T* comp = new T();
 			comp->Init();
 			comp->SetOwner(this);
-			m_vecComponents.push_back(comp);
+			m_vecComponents[(UINT)comp->GetComponentType()] = comp;
 
 			return comp;
 		}

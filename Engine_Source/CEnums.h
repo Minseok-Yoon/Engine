@@ -2,6 +2,20 @@
 
 namespace ya::enums
 {
+	enum class COMPONENT_TYPE
+	{
+		Transform,
+		Collider,
+		Rigidbody,
+		Script,
+		SpriteRenderer,
+		Animator,
+		Camera,
+		AudioListener,
+		AudioSource,
+		End,
+	};
+
 	enum class LAYER_TYPE
 	{
 		None,

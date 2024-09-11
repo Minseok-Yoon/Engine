@@ -14,6 +14,9 @@ namespace ya
 		static LARGE_INTEGER CpuFrequency;
 		static LARGE_INTEGER PrevFrequency;
 		static LARGE_INTEGER CurrentFrequency;
-		static float DeltaTime;
+		static float fDeltaTime;
+
+	public:
+		static float fDeltaTime() { return fDeltaTime; }
 	};
 }
