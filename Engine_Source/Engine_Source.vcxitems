@@ -21,7 +21,10 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)CGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CInput.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CLayer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CResource.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CSpriteRenderer.h" />
@@ -35,6 +38,8 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)CGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)CInput.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)CLayer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)CResource.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)CResources.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)CScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)CSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)CSpriteRenderer.cpp" />

@@ -63,15 +63,15 @@ namespace ya
 	{
 	}
 
-	void CScene::AddGameObject(CGameObject* _pGameObj, const LAYER_TYPE eLayerType)
+	void CScene::AddGameObject(CGameObject* _pGameObj, const enums::LAYER_TYPE eLayerType)
 	{
 		m_vecLayers[(UINT)eLayerType]->AddGameObject(_pGameObj);
 	}
 
 	void CScene::createLayers()
 	{
-		m_vecLayers.resize((UINT)LAYER_TYPE::Max);
-		for (size_t i = 0; i < (UINT)LAYER_TYPE::Max; i++)
+		m_vecLayers.resize((UINT)enums::LAYER_TYPE::Max);
+		for (size_t i = 0; i < (UINT)enums::LAYER_TYPE::Max; i++)
 		{
 			m_vecLayers[i] = new CLayer();
 		}

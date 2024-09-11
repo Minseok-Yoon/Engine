@@ -40,6 +40,9 @@ namespace ya
 		static CScene* m_ActiveScene;
 
 	public:
+		static CScene* GetActiveScene() { return m_ActiveScene; }
+
+	public:
 		static void Init();
 		static void Update();
 		static void LateUpdate();

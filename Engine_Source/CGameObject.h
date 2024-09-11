@@ -36,6 +36,11 @@ namespace ya
 
 	private:
 		vector<CComponenet*> m_vecComponents;
+		enums::LAYER_TYPE	m_eLayerType;
+
+	public:
+		void SetLayerType(const enums::LAYER_TYPE _eLayerType) { m_eLayerType = _eLayerType; }
+		enums::LAYER_TYPE GetLayerType() const { return m_eLayerType; }
 
 	public:
 		virtual void Init();

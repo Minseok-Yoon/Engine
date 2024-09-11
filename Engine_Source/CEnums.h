@@ -1,6 +1,6 @@
 #pragma once
 
-namespace ya
+namespace ya::enums
 {
 	enum class LAYER_TYPE
 	{
@@ -10,5 +10,17 @@ namespace ya
 		Floor,
 		Particle,
 		Max = 16,
+	};
+
+	enum class RESOURCE_TYPE
+	{
+		Texture,
+		Mesh,
+		Material,
+		Animation,
+		AudioClip,
+		Shader,
+		Prefab,
+		End,
 	};
 }

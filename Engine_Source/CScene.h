@@ -23,7 +23,7 @@ namespace ya
 		virtual void OnEnter();
 		virtual void OnExit();
 
-		void AddGameObject(CGameObject* _pGameObj, const LAYER_TYPE eLayerType);
+		void AddGameObject(CGameObject* _pGameObj, const enums::LAYER_TYPE eLayerType);
 
 	private:
 		void createLayers();

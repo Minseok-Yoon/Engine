@@ -5,36 +5,81 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)CComponenet.cpp">
       <Filter>Component</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)CSpriteRenderer.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)CTransform.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)CGameObject.cpp">
       <Filter>Object</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)CLayer.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)CEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)CInput.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)CScene.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)CSceneManager.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)CTime.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)CResource.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)CSpriteRenderer.cpp">
+      <Filter>Component\SpriteRender</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)CTransform.cpp">
+      <Filter>Component\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)CSceneManager.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)CScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)CResources.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)CEntity.cpp">
+      <Filter>CommonInclude</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)CLayer.cpp">
+      <Filter>Layer</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)CTime.cpp">
+      <Filter>Time</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CApplication.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CComponenet.h">
       <Filter>Component</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)CSpriteRenderer.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)CTransform.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CGameObject.h">
       <Filter>Object</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)CEnums.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)CLayer.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)CEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CInput.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)CScene.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)CSceneManager.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)CTime.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CResource.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CSpriteRenderer.h">
+      <Filter>Component\SpriteRender</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CTransform.h">
+      <Filter>Component\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CSceneManager.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h">
+      <Filter>CommonInclude</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CResources.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CEntity.h">
+      <Filter>CommonInclude</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CEnums.h">
+      <Filter>CommonInclude</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CLayer.h">
+      <Filter>Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CTime.h">
+      <Filter>Time</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Component">
@@ -42,6 +87,30 @@
     </Filter>
     <Filter Include="Object">
       <UniqueIdentifier>{cb6d0023-e890-4bd8-b4a9-8454d6c25669}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{b62d2bd6-6537-4c8f-a127-7b51d0f92202}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\SpriteRender">
+      <UniqueIdentifier>{04c95846-3244-4ee4-aafb-be18c762fe40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Transform">
+      <UniqueIdentifier>{8c3b32de-9ac4-4c9a-95ac-e5be0621f90b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{564a47fb-1202-44ec-a0b2-e1444e9eac5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CommonInclude">
+      <UniqueIdentifier>{8706471a-e29e-49f6-9e11-1888392f5b8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Layer">
+      <UniqueIdentifier>{e83a9326-6322-4029-853f-9475ff23de7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Time">
+      <UniqueIdentifier>{7ba895a3-5ed3-476a-be9a-c9bf0d6ff834}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\Texture">
+      <UniqueIdentifier>{f484fc1a-d233-4176-8fa3-86906c3ef1a0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
