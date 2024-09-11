@@ -1,10 +1,13 @@
 #include "CGameObject.h"
 #include "CInput.h"
+#include "CTime.h"
+#include "CTransform.h"
 
 namespace ya
 {
 	CGameObject::CGameObject()
 	{
+		initializeTransform();
 	}
 
 	CGameObject::~CGameObject()
@@ -13,7 +16,7 @@ namespace ya
 
 	void CGameObject::Init()
 	{
-		for (CComponenet* comp : m_vecComponents)
+		for (CComponent* comp : m_vecComponents)
 		{
 			comp->Init();
 		}
@@ -21,7 +24,7 @@ namespace ya
 
 	void CGameObject::Update()
 	{
-		for (CComponenet* comp : m_vecComponents)
+		for (CComponent* comp : m_vecComponents)
 		{
 			comp->Update();
 		}
@@ -29,7 +32,7 @@ namespace ya
 
 	void CGameObject::LateUpdate()
 	{
-		for (CComponenet* comp : m_vecComponents)
+		for (CComponent* comp : m_vecComponents)
 		{
 			comp->LateUpdate();
 		}
@@ -37,9 +40,13 @@ namespace ya
 
 	void CGameObject::Render(HDC _hDC)
 	{
-		for (CComponenet* comp : m_vecComponents)
+		for (CComponent* comp : m_vecComponents)
 		{
 			comp->Render(_hDC);
 		}
+	}
+	void CGameObject::initializeTransform()
+	{
+		AddComponent<CTransform>();
 	}
 }

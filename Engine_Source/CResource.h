@@ -17,7 +17,7 @@ namespace ya
 		void SetPath(const wstring& _strPath) { m_strPath = _strPath; }
 		const wstring& GetPath() { return m_strPath; }
 
-		virtual HRESULT Save(const wstring& _strPath) = 0;
+		//virtual HRESULT Save(const wstring& _strPath) = 0;
 		virtual HRESULT Load(const wstring& _strPath) = 0;
 	};
 }

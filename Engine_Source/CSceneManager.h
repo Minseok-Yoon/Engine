@@ -11,6 +11,7 @@ namespace ya
 		{
 			T* scene = new T();
 			scene->SetName(_strName);
+			m_ActiveScene = scene;
 			scene->Init();
 
 			m_Scene.insert(make_pair(_strName, scene));
@@ -18,22 +19,7 @@ namespace ya
 			return scene;
 		}
 
-		static CScene* LoadScene(const wstring& _strName)
-		{
-			if (m_ActiveScene)
-				m_ActiveScene->OnExit();
-
-			map<wstring, CScene*>::iterator iter
-				= m_Scene.find(_strName);
-
-			if (iter == m_Scene.end())
-				return nullptr;
-
-			m_ActiveScene = iter->second;
-			m_ActiveScene->OnEnter();
-
-			return iter->second;
-		}
+		static CScene* LoadScene(const wstring& _strName);
 
 	private:
 		static map<wstring, CScene*> m_Scene;

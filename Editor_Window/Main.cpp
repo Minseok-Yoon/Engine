@@ -5,8 +5,12 @@
 #include "Editor_Window.h"
 #include "../Engine_Source/CApplication.h"
 #include "../Engine_Window/CLoadScene.h"
+#include "../Engine_Window/CLoadResources.h"
 
 ya::CApplication application;
+
+ULONG_PTR   gpToken;
+Gdiplus::GdiplusStartupInput gpsi;
 
 #define MAX_LOADSTRING 100
 
@@ -81,6 +85,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
             DispatchMessage(&msg);
         }
     }*/
+    Gdiplus::GdiplusShutdown(gpToken);
 
     return (int) msg.wParam;
 }
@@ -143,7 +148,10 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
 
+   Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
+
    // Load Scenes
+   ya::LoadResources();
    ya::LoadScenes();
 
    return TRUE;

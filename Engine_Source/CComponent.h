@@ -4,11 +4,11 @@
 namespace ya
 {
 	class CGameObject;
-	class CComponenet : public CEntity
+	class CComponent : public CEntity
 	{
 	public:
-		CComponenet();
-		virtual ~CComponenet();
+		CComponent();
+		virtual ~CComponent();
 
 	private:
 		CGameObject* m_pOwner;

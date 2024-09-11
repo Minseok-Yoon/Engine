@@ -19,11 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CLoadResources.h" />
     <ClInclude Include="CLoadScene.h" />
+    <ClInclude Include="CPlayer.h" />
     <ClInclude Include="CPlayScene.h" />
     <ClInclude Include="CTitleScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CPlayer.cpp" />
     <ClCompile Include="CPlayScene.cpp" />
     <ClCompile Include="CTitleScene.cpp" />
   </ItemGroup>

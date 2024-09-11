@@ -4,6 +4,9 @@
     <Filter Include="Scene">
       <UniqueIdentifier>{67857aed-9740-42cc-ad26-a86ed5ee36cb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Player">
+      <UniqueIdentifier>{a75235b3-f09c-4e74-8cd1-9c5e1eb0fab0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CLoadScene.h">
@@ -11,9 +14,16 @@
     </ClInclude>
     <ClInclude Include="CPlayScene.h" />
     <ClInclude Include="CTitleScene.h" />
+    <ClInclude Include="CPlayer.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="CLoadResources.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CPlayScene.cpp" />
     <ClCompile Include="CTitleScene.cpp" />
+    <ClCompile Include="CPlayer.cpp">
+      <Filter>Player</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

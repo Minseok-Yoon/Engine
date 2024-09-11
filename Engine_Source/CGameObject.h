@@ -1,6 +1,6 @@
 #pragma once
 #include "CommonInclude.h"
-#include "CComponenet.h"
+#include "CComponent.h"
 
 namespace ya
 {
@@ -25,7 +25,7 @@ namespace ya
 		T* GetComponent()
 		{
 			T* component = nullptr;
-			for (CComponenet* comp : m_vecComponents)
+			for (CComponent* comp : m_vecComponents)
 			{
 				component = dynamic_cast<T*>(comp);
 				if (component)
@@ -35,7 +35,7 @@ namespace ya
 		}
 
 	private:
-		vector<CComponenet*> m_vecComponents;
+		vector<CComponent*> m_vecComponents;
 		enums::LAYER_TYPE	m_eLayerType;
 
 	public:
@@ -47,5 +47,8 @@ namespace ya
 		virtual void Update();
 		virtual void LateUpdate();
 		virtual void Render(HDC _hDC);
+
+	private:
+		void initializeTransform();
 	};
 }

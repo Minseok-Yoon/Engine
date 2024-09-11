@@ -2,7 +2,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)CApplication.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)CComponenet.cpp">
+    <ClCompile Include="$(MSBuildThisFileDirectory)CComponent.cpp">
       <Filter>Component</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)CGameObject.cpp">
@@ -36,17 +36,22 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)CTime.cpp">
       <Filter>Time</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)CMath.cpp">
+      <Filter>CommonInclude</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)CTexture.cpp">
+      <Filter>Resource\Texture</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CApplication.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)CComponenet.h">
+    <ClInclude Include="$(MSBuildThisFileDirectory)CComponent.h">
       <Filter>Component</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)CGameObject.h">
       <Filter>Object</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)CInput.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)CObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CResource.h">
       <Filter>Resource</Filter>
     </ClInclude>
@@ -79,6 +84,15 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)CTime.h">
       <Filter>Time</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CObject.h">
+      <Filter>CommonInclude</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CMath.h">
+      <Filter>CommonInclude</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CTexture.h">
+      <Filter>Resource\Texture</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

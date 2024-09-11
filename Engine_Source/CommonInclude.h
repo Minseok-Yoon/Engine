@@ -1,6 +1,7 @@
 #pragma once
 #include <Windows.h>
 #include <algorithm>
+#include <assert.h>
 
 #include <vector>
 using std::vector;
@@ -11,7 +12,7 @@ using std::wstring;
 #include <map>
 using std::map;
 
-//#include "CMath.h"
+#include "CMath.h"
 #include "CEnums.h"
 
 #include <dinput.h>

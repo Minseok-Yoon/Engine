@@ -20,6 +20,9 @@ namespace ya
 		HBITMAP	m_hBackBuffer;
 
 	public:
+		HDC GetHdc() { return m_hDC; }
+
+	public:
 		void Init(HWND _hWnd, UINT _iWidth, UINT _iHeight);
 		void Update();
 		void LateUpdate();
