@@ -17,6 +17,6 @@ namespace ya
 		static float fDeltaTime;
 
 	public:
-		static float fDeltaTime() { return fDeltaTime; }
+		static float DeltaTime() { return fDeltaTime; }
 	};
 }

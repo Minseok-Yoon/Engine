@@ -24,7 +24,7 @@ namespace ya
 		{
 			CTransform* tr = GetOwner()->GetComponent<CTransform>();
 			math::Vector2 vPos = tr->GetPosition();
-			vPos.x += 100.0f * CTime::fDeltaTime();
+			vPos.x += 100.0f * CTime::DeltaTime();
 			tr->SetPosition(vPos);
 		}
 
@@ -32,7 +32,7 @@ namespace ya
 		{
 			CTransform* tr = GetOwner()->GetComponent<CTransform>();
 			math::Vector2 vPos = tr->GetPosition();
-			vPos.x -= 100.0f * CTime::fDeltaTime();
+			vPos.x -= 100.0f * CTime::DeltaTime();
 			tr->SetPosition(vPos);
 		}
 
@@ -40,7 +40,7 @@ namespace ya
 		{
 			CTransform* tr = GetOwner()->GetComponent<CTransform>();
 			math::Vector2 vPos = tr->GetPosition();
-			vPos.y -= 100.0f * CTime::fDeltaTime();
+			vPos.y -= 100.0f * CTime::DeltaTime();
 			tr->SetPosition(vPos);
 		}
 
@@ -48,7 +48,7 @@ namespace ya
 		{
 			CTransform* tr = GetOwner()->GetComponent<CTransform>();
 			math::Vector2 vPos = tr->GetPosition();
-			vPos.y += 100.0f * CTime::fDeltaTime();
+			vPos.y += 100.0f * CTime::DeltaTime();
 			tr->SetPosition(vPos);
 		}
 	}

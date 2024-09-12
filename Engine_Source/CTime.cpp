@@ -5,7 +5,7 @@ namespace ya
 	LARGE_INTEGER CTime::CpuFrequency = {};
 	LARGE_INTEGER CTime::PrevFrequency = {};
 	LARGE_INTEGER CTime::CurrentFrequency = {};
-	float CTime::DeltaTime = 0.0f;
+	float CTime::fDeltaTime = 0.0f;
 
 	void CTime::Init()
 	{
@@ -22,7 +22,7 @@ namespace ya
 
 		float differenceFrequency
 			= static_cast<float>(CurrentFrequency.QuadPart - PrevFrequency.QuadPart);
-		DeltaTime = differenceFrequency / static_cast<float>(CpuFrequency.QuadPart);
+		fDeltaTime = differenceFrequency / static_cast<float>(CpuFrequency.QuadPart);
 		PrevFrequency.QuadPart = CurrentFrequency.QuadPart;
 	}
 

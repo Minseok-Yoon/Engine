@@ -11,6 +11,7 @@
 #include "CPlayerScript.h"
 #include "CCamera.h"
 #include "CRenderer.h"
+#include "CAnimator.h"
 
 ya::CPlayScene::CPlayScene()
 {
@@ -35,19 +36,27 @@ void ya::CPlayScene::Init()
 	CCamera* cameraComp = camera->AddComponent<CCamera>();
 	renderer::mainCamera = cameraComp;
 
-	m_pPlayer = object::Instantiate<CPlayer>(enums::LAYER_TYPE::Player);
-	CSpriteRenderer* sr = m_pPlayer->AddComponent<CSpriteRenderer>();
-	sr->SetSize(math::Vector2(3.0f, 3.0f));
+	/*m_pPlayer = object::Instantiate<CPlayer>(enums::LAYER_TYPE::Player);
+	//CSpriteRenderer* sr = m_pPlayer->AddComponent<CSpriteRenderer>();
+	//sr->SetSize(math::Vector2(3.0f, 3.0f));
 	m_pPlayer->AddComponent<CPlayerScript>();
 
 	graphcis::CTexture* packmanTexture = CResources::Find<graphcis::CTexture>(L"PackMan");
 	sr->SetTexture(packmanTexture);
 
+	// Animator
+	graphcis::CTexture* packmanTexture = Resources::Find<graphcis::CTexture>(L"Cat");
+	CAnimator* animator = m_pPlayer->AddComponent<CAnimator>();
+	animator->CreateAnimation(L"CatFrontMove", packmanTexture
+			, Vector2(0.0f, 0.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.5f);
+
+	animator->PlayAnimation(L"CatFrontMove", true);
+
 	CGameObject* bg = object::Instantiate<CGameObject>(enums::LAYER_TYPE::BackGround);
 	CSpriteRenderer* bgSr = bg->AddComponent<CSpriteRenderer>();
 	bgSr->SetSize(math::Vector2(3.0f, 3.0f));
 	graphcis::CTexture* bgTexture = CResources::Find<graphcis::CTexture>(L"Map");
-	bgSr->SetTexture(bgTexture);
+	bgSr->SetTexture(bgTexture);*/
 
 	CScene::Init();
 }
