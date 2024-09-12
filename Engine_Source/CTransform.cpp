@@ -3,7 +3,9 @@
 namespace ya
 {
 	CTransform::CTransform() :
-		CComponent(enums::COMPONENT_TYPE::Transform)
+		CComponent(enums::COMPONENT_TYPE::Transform),
+		m_vScale(math::Vector2::One),
+		m_fRotation(0.0f)
 	{
 	}
 

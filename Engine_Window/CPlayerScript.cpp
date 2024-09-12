@@ -6,7 +6,9 @@
 
 namespace ya
 {
-	CPlayerScript::CPlayerScript()
+	CPlayerScript::CPlayerScript() :
+		m_ePlayerState(PLAYER_STATE::NONE),
+		m_pAnimator(nullptr)
 	{
 	}
 

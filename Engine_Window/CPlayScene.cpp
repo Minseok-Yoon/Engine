@@ -32,7 +32,7 @@ void ya::CPlayScene::Init()
 	sr->SetTexture(bg);*/
 #pragma endregion
 	// main camera
-	CGameObject* camera = object::Instantiate<CGameObject>(enums::LAYER_TYPE::None, math::Vector2(344.0f, 442.0f));
+	CGameObject* camera = object::Instantiate<CGameObject>(enums::LAYER_TYPE::Particle, math::Vector2(344.0f, 442.0f));
 	CCamera* cameraComp = camera->AddComponent<CCamera>();
 	renderer::mainCamera = cameraComp;
 

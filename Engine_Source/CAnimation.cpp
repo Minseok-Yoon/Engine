@@ -1,4 +1,5 @@
 #include "CAnimation.h"
+#include "CAnimator.h"
 #include "CTime.h"
 #include "CGameObject.h"
 #include "CTransform.h"
@@ -47,11 +48,13 @@ namespace ya
 		CGameObject* gameObj = m_pAnimator->GetOwner();
 		CTransform* tr = gameObj->GetComponent<CTransform>();
 		math::Vector2 vPos = tr->GetPosition();
+		float rot = tr->GetRoation();
+		math::Vector2 vScale = tr->GetScale();
 
 		if (renderer::mainCamera)
 			vPos = renderer::mainCamera->CaluatePosition(vPos);
-
-		BLENDFUNCTION func = {};
+#pragma region
+		/*BLENDFUNCTION func = {};
 		func.BlendOp = AC_SRC_OVER;
 		func.BlendFlags = 0;
 		func.AlphaFormat = AC_SRC_ALPHA;
@@ -69,7 +72,62 @@ namespace ya
 			sprite.vLeftTop.y,
 			sprite.vSize.x,
 			sprite.vSize.y,
-			func);
+			func);*/
+#pragma endregion
+
+		Sprite sprite = m_vecAnimationSheet[m_iIndex];
+		graphcis::CTexture::TEXTURE_TYPE _eTextureType = m_pTexture->GetTextureType();
+		if (_eTextureType == graphcis::CTexture::TEXTURE_TYPE::Bmp)
+		{
+			BLENDFUNCTION func = {};
+			func.BlendOp = AC_SRC_OVER;
+			func.BlendFlags = 0;
+			func.AlphaFormat = AC_SRC_ALPHA;
+			func.SourceConstantAlpha = 125; // 0(transparent) ~ 255(Opaque)
+
+
+			HDC imgHdc = m_pTexture->GetHdc();
+
+			AlphaBlend(_hDC,
+				vPos.x - (sprite.vSize.x / 2.0f), 
+				vPos.y - (sprite.vSize.y / 2.0f),
+				sprite.vSize.x * vScale.x,
+				sprite.vSize.y * vScale.y,
+				imgHdc,
+				sprite.vLeftTop.x,
+				sprite.vLeftTop.y,
+				sprite.vSize.x,
+				sprite.vSize.y,
+				func);
+		}
+		else if (_eTextureType == graphcis::CTexture::TEXTURE_TYPE::Png)
+		{
+			// 내가 원하는 픽셀을 투명화 시킬 때
+			Gdiplus::ImageAttributes imgAtt = {};
+
+			// 투명화 시킬 픽셀의 색 범위
+			imgAtt.SetColorKey(Gdiplus::Color(230, 230, 230), Gdiplus::Color(255, 255, 255));
+
+			Gdiplus::Graphics graphics(_hDC);
+
+			graphics.TranslateTransform(vPos.x, vPos.y);
+			graphics.RotateTransform(rot);
+			graphics.TranslateTransform(-vPos.x, -vPos.y);
+
+			graphics.DrawImage(m_pTexture->GetImage(),
+				Gdiplus::Rect
+				(
+					vPos.x - (sprite.vSize.x / 2.0f),
+					vPos.y - (sprite.vSize.y / 2.0f),
+					sprite.vSize.x * vScale.x,
+					sprite.vSize.y * vScale.y),
+				sprite.vLeftTop.x,
+				sprite.vLeftTop.y,
+				sprite.vSize.x,
+				sprite.vSize.y,
+				Gdiplus::UnitPixel,
+				nullptr);
+		}
 	}
 
 	HRESULT CAnimation::Load(const wstring& _strPath)
