@@ -39,6 +39,7 @@ void ya::CPlayScene::Init()
 	CGameObject* camera = object::Instantiate<CGameObject>(enums::LAYER_TYPE::Particle, math::Vector2(344.0f, 442.0f));
 	CCamera* cameraComp = camera->AddComponent<CCamera>();
 	renderer::mainCamera = cameraComp;
+	object::DontDestroyOnLoad(m_pPlayer);
 
 	/*m_pPlayer = object::Instantiate<CPlayer>(enums::LAYER_TYPE::Player);
 	//CSpriteRenderer* sr = m_pPlayer->AddComponent<CSpriteRenderer>();

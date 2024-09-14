@@ -2,5 +2,4 @@
 
 namespace ya::object
 {
-	static vector<CGameObject*> DontDestroyGameObjects = {};
 }

@@ -16,6 +16,7 @@ namespace ya
 
 	public:
 		void AddGameObject(CGameObject* _pGameObject);
+		void EraseGameObject(CGameObject* _pEraseGameObject);
 		const vector<CGameObject*> GetGameObjects() { return m_vecGameObjects; }
 
 	public:
@@ -28,7 +29,7 @@ namespace ya
 	private:
 		void findDeadGameObjects(OUT vector<CGameObject*>& _pGameObjects);
 		void deleteGameObjects(vector<CGameObject*> _vecGameObjects);
-		void eraseGameObject();
+		void eraseDeadGameObject();
 	};
 	typedef vector<CGameObject*>::iterator GameObjectIter;
 }

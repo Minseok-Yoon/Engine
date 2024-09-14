@@ -27,6 +27,16 @@ namespace ya
 		m_vecGameObjects.push_back(_pGameObject);
 	}
 
+	void CLayer::EraseGameObject(CGameObject* _pEraseGameObject)
+	{
+		// std::erase() iter넣어줘서 해당 이터레이와 같은 객체 삭제
+		std::erase_if(m_vecGameObjects,
+			[=](CGameObject* gameObj)
+		{
+			return gameObj == _pEraseGameObject;
+		});
+	}
+
 	void CLayer::Init()
 	{
 		for (CGameObject* _pGameObject : m_vecGameObjects)
@@ -83,7 +93,7 @@ namespace ya
 	{
 		vector<CGameObject*> deleteObjects = {};
 		findDeadGameObjects(deleteObjects);
-		eraseGameObject();
+		eraseDeadGameObject();
 		deleteGameObjects(deleteObjects);
 	}
 
@@ -106,7 +116,7 @@ namespace ya
 		}
 	}
 
-	void CLayer::eraseGameObject()
+	void CLayer::eraseDeadGameObject()
 	{
 		erase_if(m_vecGameObjects,
 			[](CGameObject* _gameObj)

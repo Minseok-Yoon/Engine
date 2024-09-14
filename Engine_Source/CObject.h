@@ -23,7 +23,7 @@ namespace ya::object
 	static T* Instantiate(enums::LAYER_TYPE _eLayerType, math::Vector2 _position)
 	{
 		T* gameObject = new T();
-		//gameObject->SetLayerType(_eLayerType);
+		gameObject->SetLayerType(_eLayerType);
 		CScene* activeScene = CSceneManager::GetActiveScene();
 		CLayer* layer = activeScene->GetLayer(_eLayerType);
 		layer->AddGameObject(gameObject);
@@ -34,11 +34,14 @@ namespace ya::object
 		return gameObject;
 	}
 
-	static void Destroy(CGameObject* _gameObj)
+	static void DontDestroyOnLoad(CGameObject* _gameObj)
 	{
-		if (_gameObj == nullptr)
-			return;
+		CScene* activeScene = CSceneManager::GetActiveScene();
+		// 현재씬에서 게임 오브젝트를 지워준다.
+		activeScene->EraseGameObject(_gameObj);
 
-		_gameObj->Death();
+		// 해당 게임오브젝트를 -> DontDestroy씬으로 넣어준다.
+		CScene* dontDestroyOnLoad = CSceneManager::GetDontDestroyOnLoad();
+		dontDestroyOnLoad->AddGameObject(_gameObj, _gameObj->GetLayerType());
 	}
 }

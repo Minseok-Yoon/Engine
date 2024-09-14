@@ -19,14 +19,15 @@ namespace ya
 			return scene;
 		}
 
-		static CScene* LoadScene(const wstring& _strName);
-
 	private:
 		static map<wstring, CScene*> m_mapScene;
 		static CScene* m_ActiveScene;
+		static CScene* m_DontDestroyOnLoad;
 
 	public:
+		static CScene* LoadScene(const wstring& _strName);
 		static CScene* GetActiveScene() { return m_ActiveScene; }
+		static CScene* GetDontDestroyOnLoad() { return m_DontDestroyOnLoad; }
 
 	public:
 		static void Init();

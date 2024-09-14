@@ -75,6 +75,7 @@ namespace ya
 	void CScene::OnEnter()
 	{
 	}
+
 	void CScene::OnExit()
 	{
 	}
@@ -82,6 +83,12 @@ namespace ya
 	void CScene::AddGameObject(CGameObject* _pGameObj, const enums::LAYER_TYPE _eLayerType)
 	{
 		m_vecLayers[(UINT)_eLayerType]->AddGameObject(_pGameObj);
+	}
+
+	void CScene::EraseGameObject(CGameObject* _pGameObj)
+	{
+		LAYER_TYPE layerType = _pGameObj->GetLayerType();
+		m_vecLayers[(UINT)layerType]->EraseGameObject(_pGameObj);
 	}
 
 	void CScene::createLayers()

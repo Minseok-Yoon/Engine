@@ -25,6 +25,7 @@ namespace ya
 		virtual void OnExit();
 
 		void AddGameObject(CGameObject* _pGameObj, const enums::LAYER_TYPE _eLayerType);
+		void EraseGameObject(CGameObject* _pGameObj);
 		CLayer* GetLayer(const enums::LAYER_TYPE _eLayerType) { return m_vecLayers[(UINT)_eLayerType]; }
 
 	private:
