@@ -6,7 +6,7 @@ namespace ya
 {
 	void LoadResources()
 	{
-		CResources::Load<graphcis::CTexture>(L"BG",
+		CResources::Load<graphics::CTexture>(L"BG",
 			L"C:/Users/socls/πŸ≈¡ »≠∏È/Engine/Bin/Texture/bg.png");
 	}
 }

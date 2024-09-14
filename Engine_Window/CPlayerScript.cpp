@@ -62,4 +62,13 @@ namespace ya
 	void CPlayerScript::Render(HDC _hDC)
 	{
 	}
+	void CPlayerScript::OnCollisionEnter(CCollider* _pOther)
+	{
+	}
+	void CPlayerScript::OnCollisionStay(CCollider* _pOther)
+	{
+	}
+	void CPlayerScript::OnCollisionExit(CCollider* _pOther)
+	{
+	}
 }

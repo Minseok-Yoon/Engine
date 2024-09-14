@@ -14,7 +14,7 @@ namespace ya
 			m_ActiveScene = scene;
 			scene->Init();
 
-			m_Scene.insert(make_pair(_strName, scene));
+			m_mapScene.insert(make_pair(_strName, scene));
 
 			return scene;
 		}
@@ -22,7 +22,7 @@ namespace ya
 		static CScene* LoadScene(const wstring& _strName);
 
 	private:
-		static map<wstring, CScene*> m_Scene;
+		static map<wstring, CScene*> m_mapScene;
 		static CScene* m_ActiveScene;
 
 	public:
@@ -33,5 +33,7 @@ namespace ya
 		static void Update();
 		static void LateUpdate();
 		static void Render(HDC _hDC);
+		static void Destroy();
+		static void Release();
 	};
 }

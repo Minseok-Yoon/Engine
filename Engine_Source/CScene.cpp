@@ -10,6 +10,11 @@ namespace ya
 
 	CScene::~CScene()
 	{
+		for (CLayer* layer : m_vecLayers)
+		{
+			delete layer;
+			layer = nullptr;
+		}
 	}
 
 	void CScene::Init()
@@ -53,6 +58,17 @@ namespace ya
 				continue;
 
 			_pLayer->Render(_hDC);
+		}
+	}
+
+	void CScene::Destroy()
+	{
+		for (CLayer* layer : m_vecLayers)
+		{
+			if (layer == nullptr)
+				continue;
+
+			layer->Destroy();
 		}
 	}
 

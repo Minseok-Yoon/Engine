@@ -20,6 +20,7 @@ namespace ya
 		HBITMAP	m_hBackBuffer;
 
 	public:
+		HWND GetHwnd() { return m_hWnd; }
 		HDC GetHdc() { return m_hDC; }
 
 		UINT GetWidth() { return m_iWidth; }
@@ -31,6 +32,8 @@ namespace ya
 		void LateUpdate();
 		void Render();
 
+		void Destroy();
+		void Release();
 		void Run();
 
 		void AdjustWindowRect(HWND _hWnd, UINT _iWidth, UINT _iHeight);

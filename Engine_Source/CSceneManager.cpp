@@ -2,7 +2,7 @@
 
 namespace ya
 {
-	map<wstring, CScene*> CSceneManager::m_Scene = {};
+	map<wstring, CScene*> CSceneManager::m_mapScene = {};
 	CScene* CSceneManager::m_ActiveScene = nullptr;
 
 	CScene* CSceneManager::LoadScene(const wstring& _strName)
@@ -11,9 +11,9 @@ namespace ya
 			m_ActiveScene->OnExit();
 
 		map<wstring, CScene*>::iterator iter
-			= m_Scene.find(_strName);
+			= m_mapScene.find(_strName);
 
-		if (iter == m_Scene.end())
+		if (iter == m_mapScene.end())
 			return nullptr;
 
 		m_ActiveScene = iter->second;
@@ -39,5 +39,19 @@ namespace ya
 	void CSceneManager::Render(HDC _hDC)
 	{
 		m_ActiveScene->Render(_hDC);
+	}
+
+	void CSceneManager::Destroy()
+	{
+		m_ActiveScene->Destroy();
+	}
+
+	void CSceneManager::Release()
+	{
+		for (auto& iter : m_mapScene)
+		{
+			delete iter.second;
+			iter.second = nullptr;
+		}
 	}
 }

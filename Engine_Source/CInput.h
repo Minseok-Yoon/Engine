@@ -34,9 +34,10 @@ namespace ya
 		static void Init();
 		static void Update();
 
-		static bool GetKeyDown(KEY_CODE _code) { return mKeys[(UINT)_code].eState == KEY_STATE::Down; }
-		static bool GetKeyUp(KEY_CODE _code) { return mKeys[(UINT)_code].eState == KEY_STATE::Up; }
-		static bool GetKey(KEY_CODE _code) { return mKeys[(UINT)_code].eState == KEY_STATE::Pressed; }
+		__forceinline static bool GetKeyDown(KEY_CODE _code) { return mKeys[(UINT)_code].eState == KEY_STATE::Down; }
+		__forceinline static bool GetKeyUp(KEY_CODE _code) { return mKeys[(UINT)_code].eState == KEY_STATE::Up; }
+		__forceinline static bool GetKey(KEY_CODE _code) { return mKeys[(UINT)_code].eState == KEY_STATE::Pressed; }
+		__forceinline static math::Vector2 GetMousePosition() { return vMousePosition; }
 
 	private:
 		static void createKeys();
@@ -46,8 +47,11 @@ namespace ya
 		static bool isKeyDown(KEY_CODE _code);
 		static void updateKeyDown(Key& _key);
 		static void updateKeyUp(Key& _key);
+		static void getMousePositionByWindow();
+		static void clearKeys();
 
 		// 키의 상태는 어느 클래스 안에서도 접근이 가능해야 하니 정적 변수로 선언.
 		static vector<Key> mKeys;
+		static math::Vector2 vMousePosition;
 	};
 }

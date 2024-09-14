@@ -24,5 +24,9 @@ namespace ya
 		virtual void Update() override;
 		virtual void LateUpdate() override;
 		virtual void Render(HDC _hDC) override;
+
+		virtual void OnCollisionEnter(class CCollider* _pOther) override;
+		virtual void OnCollisionStay(class CCollider* _pOther) override;
+		virtual void OnCollisionExit(class CCollider* _pOther) override;
 	};
 }

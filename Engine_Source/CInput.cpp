@@ -1,8 +1,12 @@
 #include "CInput.h"
+#include "CApplication.h"
+
+extern ya::CApplication application;
 
 namespace ya
 {
 	vector<CInput::Key> CInput::mKeys = {};
+	math::Vector2 CInput::vMousePosition = math::Vector2::One;
 
 	int ASCII[static_cast<UINT>(KEY_CODE::End)] =
 	{
@@ -46,13 +50,18 @@ namespace ya
 
 	void CInput::updateKey(Key& _key)
 	{
-		if (isKeyDown(_key.eKeyCode))
+		if (GetFocus())
 		{
-			updateKeyDown(_key);
+			if (isKeyDown(_key.eKeyCode))
+				updateKeyDown(_key);
+			else
+				updateKeyUp(_key);
+
+			getMousePositionByWindow();
 		}
 		else
 		{
-			updateKeyUp(_key);
+			clearKeys();
 		}
 	}
 
@@ -79,5 +88,28 @@ namespace ya
 			_key.eState = KEY_STATE::None;
 
 		_key.bPressed = false;
+	}
+
+	void CInput::getMousePositionByWindow()
+	{
+		POINT mousePos = {};
+		GetCursorPos(&mousePos);
+		ScreenToClient(application.GetHwnd(), &mousePos);
+
+		vMousePosition.x = mousePos.x;
+		vMousePosition.y = mousePos.y;
+	}
+
+	void CInput::clearKeys()
+	{
+		for (Key& key : mKeys)
+		{
+			if (key.eState == KEY_STATE::Down || key.eState == KEY_STATE::Pressed)
+				key.eState = KEY_STATE::Up;
+			else if (key.eState == KEY_STATE::Up)
+				key.eState = KEY_STATE::None;
+
+			key.bPressed = false;
+		}
 	}
 }

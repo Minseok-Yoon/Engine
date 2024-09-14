@@ -27,7 +27,7 @@ namespace ya
 
 	private:
 		class CAnimator* m_pAnimator;
-		graphcis::CTexture* m_pTexture;
+		graphics::CTexture* m_pTexture;
 
 		vector<Sprite> m_vecAnimationSheet;
 		int	m_iIndex;
@@ -44,7 +44,7 @@ namespace ya
 		HRESULT Load(const wstring& _strPath) override;
 
 		void CreateAnimation(const wstring& _strName,
-			graphcis::CTexture* _pSpriteSheet,
+			graphics::CTexture* _pSpriteSheet,
 			math::Vector2 _vLeftTop,
 			math::Vector2 _vSize,
 			math::Vector2 _vOffset,

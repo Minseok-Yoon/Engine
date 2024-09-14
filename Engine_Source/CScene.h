@@ -19,6 +19,7 @@ namespace ya
 		virtual void Update();
 		virtual void LateUpdate();
 		virtual void Render(HDC _hDC);
+		virtual void Destroy();
 
 		virtual void OnEnter();
 		virtual void OnExit();

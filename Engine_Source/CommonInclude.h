@@ -2,6 +2,11 @@
 #include <Windows.h>
 #include <algorithm>
 #include <assert.h>
+#include <filesystem>
+#include <bitset>
+
+#include <functional>
+using std::function;
 
 #include <vector>
 using std::vector;
@@ -11,6 +16,8 @@ using std::wstring;
 
 #include <map>
 using std::map;
+
+#include <unordered_map>
 
 #include "CMath.h"
 #include "CEnums.h"

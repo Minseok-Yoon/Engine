@@ -5,7 +5,8 @@
 
 namespace ya
 {
-	CGameObject::CGameObject()
+	CGameObject::CGameObject() :
+		m_eState(STATE::Active)
 	{
 		m_vecComponents.resize((UINT)enums::COMPONENT_TYPE::End);
 		initializeTransform();

@@ -37,4 +37,11 @@ namespace ya::enums
 		Prefab,
 		End,
 	};
+
+	enum class COLLIDER_TYPE
+	{
+		Circle2D,
+		Rect2D,
+		End,
+	};
 }

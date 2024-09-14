@@ -1,4 +1,5 @@
 #include "CScript.h"
+#include "CCollider.h"
 
 namespace ya
 {
@@ -24,6 +25,15 @@ namespace ya
 	}
 
 	void CScript::Render(HDC _hDC)
+	{
+	}
+	void CScript::OnCollisionEnter(CCollider* _pOther)
+	{
+	}
+	void CScript::OnCollisionStay(CCollider* _pOther)
+	{
+	}
+	void CScript::OnCollisionExit(CCollider* _pOther)
 	{
 	}
 }

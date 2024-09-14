@@ -2,6 +2,8 @@
 #include "CInput.h"
 #include "CTime.h"
 #include "CSceneManager.h"
+#include "CResources.h"
+#include "CCollisionManager.h"
 
 namespace ya
 {
@@ -45,6 +47,7 @@ namespace ya
 		CInput::Init();
 		CTime::Init();
 
+		CCollisionManager::Init();
 		CSceneManager::Init();
 	}
 
@@ -53,18 +56,32 @@ namespace ya
 		CInput::Update();
 		CTime::Update();
 
+		CCollisionManager::Update();
 		CSceneManager::Update();
 	}
 
 	void CApplication::LateUpdate()
 	{
+		CCollisionManager::LateUpdate();
 		CSceneManager::LateUpdate();
 	}
 
 	void CApplication::Render()
 	{
-		CTime::Render(m_hDC);
-		CSceneManager::Render(m_hDC);
+		CTime::Render(m_hBackDC);
+		CCollisionManager::Render(m_hBackDC);
+		CSceneManager::Render(m_hBackDC);
+	}
+
+	void CApplication::Destroy()
+	{
+		CSceneManager::Destroy();
+	}
+
+	void CApplication::Release()
+	{
+		CSceneManager::Release();
+		CResources::Release();
 	}
 
 	void CApplication::Run()
@@ -72,6 +89,8 @@ namespace ya
 		Update();
 		LateUpdate();
 		Render();
+
+		Destroy();
 	}
 
 	void CApplication::AdjustWindowRect(HWND _hWnd, UINT _iWidth, UINT _iHeight)

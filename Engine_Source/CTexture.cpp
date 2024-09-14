@@ -1,13 +1,15 @@
 #include "CTexture.h"
 #include "CApplication.h"
+#include "CResources.h"
 
 // 해당 전역변수가 존재함을 알리는 키워드 extern
 extern ya::CApplication application;
 
-namespace ya::graphcis
+namespace ya::graphics
 {
 	CTexture::CTexture() :
-		CResource(enums::RESOURCE_TYPE::Texture)
+		CResource(enums::RESOURCE_TYPE::Texture),
+		m_bAlpha(false)
 	{
 	}
 
@@ -51,5 +53,35 @@ namespace ya::graphcis
 			m_iHeight = m_pImage->GetHeight();
 		}
 		return S_OK;
+	}
+
+	CTexture* CTexture::Create(const wstring& _strName, UINT _iWidth, UINT _iHeight)
+	{
+		CTexture* image = CResources::Find<CTexture>(_strName);
+		if (image)
+			return image;
+
+		image = new CTexture();
+		image->SetName(_strName);
+		image->SetWidth(_iWidth);
+		image->SetHeight(_iHeight);
+
+		HDC hdc = application.GetHdc();
+		HWND hwnd = application.GetHwnd();
+
+		image->m_hBitamp = CreateCompatibleBitmap(hdc, _iWidth, _iHeight);
+		image->m_hDC = CreateCompatibleDC(hdc);
+
+		HBRUSH transparentBrush = (HBRUSH)GetStockObject(NULL_BRUSH);
+		HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, transparentBrush);
+		Rectangle(image->m_hDC, -1, -1, image->GetWidth() + 1, image->GetHeight() + 1);
+		SelectObject(hdc, oldBrush);
+
+		HBITMAP oldBitmap = (HBITMAP)SelectObject(image->m_hDC, image->m_hBitamp);
+		DeleteObject(oldBitmap);
+
+		CResources::Insert(_strName + L"Image", image);
+
+		return image;
 	}
 }

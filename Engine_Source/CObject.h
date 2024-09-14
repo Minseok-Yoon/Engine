@@ -33,4 +33,12 @@ namespace ya::object
 
 		return gameObject;
 	}
+
+	static void Destroy(CGameObject* _gameObj)
+	{
+		if (_gameObj == nullptr)
+			return;
+
+		_gameObj->Death();
+	}
 }

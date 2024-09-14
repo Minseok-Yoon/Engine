@@ -48,7 +48,7 @@ namespace ya
 		CGameObject* gameObj = m_pAnimator->GetOwner();
 		CTransform* tr = gameObj->GetComponent<CTransform>();
 		math::Vector2 vPos = tr->GetPosition();
-		float rot = tr->GetRoation();
+		float rot = tr->GetRotation();
 		math::Vector2 vScale = tr->GetScale();
 
 		if (renderer::mainCamera)
@@ -76,19 +76,19 @@ namespace ya
 #pragma endregion
 
 		Sprite sprite = m_vecAnimationSheet[m_iIndex];
-		graphcis::CTexture::TEXTURE_TYPE _eTextureType = m_pTexture->GetTextureType();
-		if (_eTextureType == graphcis::CTexture::TEXTURE_TYPE::Bmp)
+		graphics::CTexture::TEXTURE_TYPE _eTextureType = m_pTexture->GetTextureType();
+		if (_eTextureType == graphics::CTexture::TEXTURE_TYPE::Bmp)
 		{
-			BLENDFUNCTION func = {};
-			func.BlendOp = AC_SRC_OVER;
-			func.BlendFlags = 0;
-			func.AlphaFormat = AC_SRC_ALPHA;
-			func.SourceConstantAlpha = 125; // 0(transparent) ~ 255(Opaque)
+			//BLENDFUNCTION func = {};
+			//func.BlendOp = AC_SRC_OVER;
+			//func.BlendFlags = 0;
+			//func.AlphaFormat = AC_SRC_ALPHA;
+			//func.SourceConstantAlpha = 255; // 0(transparent) ~ 255(Opaque)
 
 
 			HDC imgHdc = m_pTexture->GetHdc();
 
-			AlphaBlend(_hDC,
+			/*AlphaBlend(_hDC,
 				vPos.x - (sprite.vSize.x / 2.0f), 
 				vPos.y - (sprite.vSize.y / 2.0f),
 				sprite.vSize.x * vScale.x,
@@ -98,9 +98,45 @@ namespace ya
 				sprite.vLeftTop.y,
 				sprite.vSize.x,
 				sprite.vSize.y,
-				func);
+				func);*/
+
+			if (m_pTexture->IsAlpha())
+			{
+				BLENDFUNCTION func = {};
+				func.BlendOp = AC_SRC_OVER;
+				func.BlendFlags = 0;
+				func.AlphaFormat = AC_SRC_ALPHA;
+				func.SourceConstantAlpha = 255;
+
+				AlphaBlend(_hDC,
+					vPos.x - (sprite.vSize.x / 2.0f) + sprite.vOffset.x,
+					vPos.y - (sprite.vSize.y / 2.0f) + sprite.vOffset.y,
+					sprite.vSize.x * vScale.x,
+					sprite.vSize.y * vScale.y,
+					imgHdc,
+					sprite.vLeftTop.x,
+					sprite.vLeftTop.y,
+					sprite.vSize.x,
+					sprite.vSize.y,
+					func);
+			}
+			else
+			{
+				TransparentBlt(_hDC,
+					vPos.x - (sprite.vSize.x / 2.0f) + sprite.vOffset.x,
+					vPos.y - (sprite.vSize.y / 2.0f) + sprite.vOffset.y,
+					sprite.vSize.x * vScale.x,
+					sprite.vSize.y * vScale.y,
+					imgHdc,
+					sprite.vLeftTop.x,
+					sprite.vLeftTop.y,
+					sprite.vSize.x,
+					sprite.vSize.y,
+					RGB(255, 0, 255));
+			}
+			Rectangle(_hDC, vPos.x, vPos.y, vPos.x + 10, vPos.y + 10);
 		}
-		else if (_eTextureType == graphcis::CTexture::TEXTURE_TYPE::Png)
+		else if (_eTextureType == graphics::CTexture::TEXTURE_TYPE::Png)
 		{
 			// 내가 원하는 픽셀을 투명화 시킬 때
 			Gdiplus::ImageAttributes imgAtt = {};
@@ -135,7 +171,7 @@ namespace ya
 		return E_NOTIMPL;
 	}
 
-	void CAnimation::CreateAnimation(const wstring& _strName, graphcis::CTexture* _pSpriteSheet, math::Vector2 _vLeftTop, 
+	void CAnimation::CreateAnimation(const wstring& _strName, graphics::CTexture* _pSpriteSheet, math::Vector2 _vLeftTop, 
 		math::Vector2 _vSize, math::Vector2 _vOffset, UINT _iSpriteLength, float _fDuratioin)
 	{
 		m_pTexture = _pSpriteSheet;
@@ -143,7 +179,7 @@ namespace ya
 		{
 			Sprite sprite = {};
 			sprite.vLeftTop.x = _vLeftTop.x + (_vSize.x * i);
-			sprite.vLeftTop.y = _vLeftTop.y + (_vSize.y * i);
+			sprite.vLeftTop.y = _vLeftTop.y;
 			sprite.vSize = _vSize;
 			sprite.vOffset = _vOffset;
 			sprite.fDuration = _fDuratioin;

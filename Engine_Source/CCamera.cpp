@@ -33,10 +33,11 @@ namespace ya
 			CTransform* tr = m_pTarget->GetComponent<CTransform>();
 			m_vLookPosition = tr->GetPosition();
 		}
-
-		CTransform* cameraTr = GetOwner()->GetComponent<CTransform>();
-		m_vLookPosition = cameraTr->GetPosition();
-
+		else
+		{
+			CTransform* cameraTr = GetOwner()->GetComponent<CTransform>();
+			m_vLookPosition = cameraTr->GetPosition();
+		}
 		m_vDistance = m_vLookPosition - (m_vResolution / 2.0f);
 	}
 

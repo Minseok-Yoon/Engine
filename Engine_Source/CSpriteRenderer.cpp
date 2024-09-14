@@ -36,16 +36,16 @@ namespace ya
 
 		CTransform* tr = GetOwner()->GetComponent<CTransform>();
 		math::Vector2 vPos = tr->GetPosition();
-		float rot = tr->GetRoation();
+		float rot = tr->GetRotation();
 		math::Vector2 vScale = tr->GetScale();
 		vPos = renderer::mainCamera->CaluatePosition(vPos);
 
 #pragma region
 		/*
-		Gdiplus::Graphics graphcis(_hDC);
-		graphcis.DrawImage(m_pImage, Gdiplus::Rect(pos.x, pos.y, m_iWidth, m_iHeight));*/
+		Gdiplus::Graphics graphics(_hDC);
+		graphics.DrawImage(m_pImage, Gdiplus::Rect(pos.x, pos.y, m_iWidth, m_iHeight));*/
 #pragma endregion
-		if (m_pTexture->GetTextureType() == graphcis::CTexture::TEXTURE_TYPE::Bmp)
+		if (m_pTexture->GetTextureType() == graphics::CTexture::TEXTURE_TYPE::Bmp)
 		{
 			TransparentBlt(_hDC, vPos.x, vPos.y,
 				m_pTexture->GetWidth() * m_vSize.x * vScale.x,
@@ -55,12 +55,12 @@ namespace ya
 				m_pTexture->GetHeight(),
 				RGB(255, 0, 255));
 		}
-		else if (m_pTexture->GetTextureType() == graphcis::CTexture::TEXTURE_TYPE::Png)
+		else if (m_pTexture->GetTextureType() == graphics::CTexture::TEXTURE_TYPE::Png)
 		{
 			// 투명화 시킬 픽셀의 색 범위 
 #pragma region
-			/*Gdiplus::Graphics graphcis(_hDC);
-			graphcis.DrawImage(m_pTexture->GetImage(), Gdiplus::Rect(pos.x, pos.y,
+			/*Gdiplus::Graphics graphics(_hDC);
+			graphics.DrawImage(m_pTexture->GetImage(), Gdiplus::Rect(pos.x, pos.y,
 				m_pTexture->GetWidth() * m_vSize.x, m_pTexture->GetHeight() * m_vSize.y));*/
 #pragma endregion
 			Gdiplus::ImageAttributes imgAtt = {};

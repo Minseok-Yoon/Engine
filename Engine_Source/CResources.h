@@ -34,6 +34,25 @@ namespace ya
 			return resource;
 		}
 
+		static void Insert(const wstring& _strKey, CResource* _pResource)
+		{
+			if (_strKey == L"")
+				return;
+			if (_pResource == nullptr)
+				return;
+
+			m_mapResources.insert(make_pair(_strKey, _pResource));
+		}
+
+		static void Release()
+		{
+			for (auto& iter : m_mapResources)
+			{
+				delete iter.second;
+				iter.second = nullptr;
+			}
+		}
+
 	private:
 		static map<wstring, CResource*> m_mapResources;
 	};

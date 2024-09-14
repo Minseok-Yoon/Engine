@@ -55,6 +55,20 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)CAnimator.cpp">
       <Filter>Animation</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)CDestroy.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)CBoxCollider2D.cpp">
+      <Filter>Collider\CBoxCollider2D</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)CCollider.cpp">
+      <Filter>Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)CCircleCollider2D.cpp">
+      <Filter>Collider\CCircleCollider2D</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)CCollisionManager.cpp">
+      <Filter>Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)CObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CApplication.h" />
@@ -120,6 +134,19 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)CAnimator.h">
       <Filter>Animation</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CDestroy.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CBoxCollider2D.h">
+      <Filter>Collider\CBoxCollider2D</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CCollider.h">
+      <Filter>Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CCircleCollider2D.h">
+      <Filter>Collider\CCircleCollider2D</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CCollisionManager.h">
+      <Filter>Collider</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Component">
@@ -160,6 +187,15 @@
     </Filter>
     <Filter Include="Animation">
       <UniqueIdentifier>{9bb662b4-e6ae-49eb-ba8e-a0782993d08a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Collider">
+      <UniqueIdentifier>{c76ad747-ac48-4aeb-90f2-e4cd415b1876}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Collider\CBoxCollider2D">
+      <UniqueIdentifier>{9bec36e1-5367-4696-8790-2c4bf6591dd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Collider\CCircleCollider2D">
+      <UniqueIdentifier>{4ae3110b-2ba4-4d64-b105-fc961bdad2a0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

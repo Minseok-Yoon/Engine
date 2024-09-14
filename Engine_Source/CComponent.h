@@ -3,6 +3,8 @@
 
 namespace ya
 {
+	using namespace enums;
+
 	class CGameObject;
 	class CComponent : public CEntity
 	{

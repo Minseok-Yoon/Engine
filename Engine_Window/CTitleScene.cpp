@@ -35,4 +35,13 @@ namespace ya
 
 		TextOut(_hDC, 0, 0, str, len);
 	}
+	void CTitleScene::OnEnter()
+	{
+		CScene::OnEnter();
+	}
+
+	void CTitleScene::OnExit()
+	{
+		CScene::OnExit();
+	}
 }

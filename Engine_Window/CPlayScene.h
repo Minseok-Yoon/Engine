@@ -10,10 +10,13 @@ namespace ya
 		virtual ~CPlayScene();
 
 	public:
-		void Init() override;
-		void Update() override;
-		void LateUpdate() override;
-		void Render(HDC _hDC) override;
+		virtual void Init() override;
+		virtual void Update() override;
+		virtual void LateUpdate() override;
+		virtual void Render(HDC _hDC) override;
+
+		virtual void OnEnter() override;
+		virtual void OnExit() override;
 
 	private:
 		class CPlayer* m_pPlayer;

@@ -12,11 +12,11 @@ namespace ya
 		virtual ~CSpriteRenderer();
 
 	private:
-		graphcis::CTexture* m_pTexture;
+		graphics::CTexture* m_pTexture;
 		math::Vector2 m_vSize;
 
 	public:
-		void SetTexture(graphcis::CTexture* _pTexture) { m_pTexture = _pTexture; }
+		void SetTexture(graphics::CTexture* _pTexture) { m_pTexture = _pTexture; }
 		void SetSize(math::Vector2 _vSize) { m_vSize = _vSize; }
 
 	public:

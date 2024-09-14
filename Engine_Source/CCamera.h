@@ -17,6 +17,7 @@ namespace ya
 
 	public:
 		math::Vector2 CaluatePosition(math::Vector2 _vPos) { return _vPos - m_vDistance; }
+		void SetTarget(CGameObject* _pTarget) { m_pTarget = _pTarget; }
 
 	public:
 		virtual void Init();
